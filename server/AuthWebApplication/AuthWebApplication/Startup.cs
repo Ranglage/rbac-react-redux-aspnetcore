@@ -24,12 +24,13 @@ namespace AuthWebApplication
     public class Startup
     {
         const string BizBook365Com = "bizbook365.com";
-        private const string SecretKey = "a55ae165-912d-4052-b61e-aeeb6d6d2c07";
-        private readonly SymmetricSecurityKey SigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(SecretKey));
+        private readonly SymmetricSecurityKey SigningKey;
 
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            var secretKey = Configuration["Jwt:Secret"];
+            SigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey));
         }
 
         public IConfiguration Configuration { get; }
