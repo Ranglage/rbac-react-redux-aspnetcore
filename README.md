@@ -67,6 +67,17 @@ http://localhost:3000/
 ```
 
 
+### Configuration
+
+The applications rely on a few configuration values:
+
+- **AuthWebApplication** expects a JWT secret in configuration: `Jwt:Secret`.
+- **React client** reads API endpoints from environment variables:
+  - `REACT_APP_API_BASE` – base URL for resource API calls.
+  - `REACT_APP_AUTH_URL` – base URL for authentication API calls.
+
+You can copy `client/.env.sample` to `client/.env` and adjust the values as needed.
+
 ### How to run video
 
 React Redux JWT Authentication using ASP.NET Core API
